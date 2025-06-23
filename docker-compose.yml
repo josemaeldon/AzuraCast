@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  azuracast:
+    image: azuracast/azuracast:latest
+    container_name: azuracast
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=12345678
+    volumes:
+      - ./azuracast:/var/azuracast
+    ports:
+      - "8000:80"
+    restart: unless-stopped
